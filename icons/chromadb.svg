@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <defs>
+    <linearGradient id="chromaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="50%" style="stop-color:#f7931e"/>
+      <stop offset="100%" style="stop-color:#ffdc00"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#chromaGrad)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+  <circle fill="url(#chromaGrad)" cx="12" cy="8" r="2"/>
+  <circle fill="url(#chromaGrad)" cx="8" cy="16" r="2"/>
+  <circle fill="url(#chromaGrad)" cx="16" cy="16" r="2"/>
+  <path fill="url(#chromaGrad)" d="M12 10v4M10 14h4"/>
+</svg> 

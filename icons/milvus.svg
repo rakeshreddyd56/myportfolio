@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <defs>
+    <linearGradient id="milvusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#009688"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#milvusGrad)" d="M12 2L3 7v10l9 5 9-5V7l-9-5z"/>
+  <path fill="white" d="M12 6l-6 3v6l6 3 6-3V9l-6-3z"/>
+  <circle fill="url(#milvusGrad)" cx="12" cy="12" r="2"/>
+  <circle fill="white" cx="8" cy="10" r="1"/>
+  <circle fill="white" cx="16" cy="10" r="1"/>
+  <circle fill="white" cx="8" cy="14" r="1"/>
+  <circle fill="white" cx="16" cy="14" r="1"/>
+</svg> 

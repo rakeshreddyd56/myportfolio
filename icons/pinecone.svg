@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <defs>
+    <linearGradient id="pineconeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a4d3a"/>
+      <stop offset="100%" style="stop-color:#2d8659"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#pineconeGrad)" d="M12 2L8 6v4l4-2 4 2V6l-4-4z"/>
+  <path fill="url(#pineconeGrad)" d="M8 10v4l4-2 4 2v-4l-4 2-4-2z"/>
+  <path fill="url(#pineconeGrad)" d="M8 14v4l4-2 4 2v-4l-4 2-4-2z"/>
+  <path fill="url(#pineconeGrad)" d="M8 18v4l4-2 4 2v-4l-4 2-4-2z"/>
+</svg> 

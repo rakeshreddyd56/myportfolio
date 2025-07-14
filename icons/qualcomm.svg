@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="qualcommGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e63946;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c5303e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Qualcomm Q design -->
+  <g transform="translate(50,50)">
+    <!-- Outer circle -->
+    <circle cx="0" cy="0" r="30" fill="none" stroke="url(#qualcommGradient)" stroke-width="8"/>
+    
+    <!-- Inner Q tail -->
+    <path d="M 15,15 L 25,25 L 20,30 L 10,20 Z" fill="url(#qualcommGradient)"/>
+    
+    <!-- Q letter styling -->
+    <path d="M -15,-20 Q -25,-20 -25,-10 Q -25,0 -25,10 Q -25,20 -15,20 L 5,20 Q 15,20 15,10 Q 15,0 15,-10 Q 15,-20 5,-20 Z M -15,-10 Q -15,-15 -10,-15 L 5,-15 Q 10,-15 10,-10 Q 10,0 10,10 Q 10,15 5,15 L -15,15 Q -20,15 -20,10 Q -20,0 -20,-10 Z" fill="url(#qualcommGradient)"/>
+  </g>
+</svg> 

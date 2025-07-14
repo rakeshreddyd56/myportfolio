@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="uiucGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#13294b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1e35;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="uiucOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff5f05;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5550c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- University building design -->
+  <g transform="translate(50,50)">
+    <!-- Main building base -->
+    <rect x="-25" y="10" width="50" height="20" fill="url(#uiucGradient)"/>
+    
+    <!-- Building columns -->
+    <rect x="-20" y="-10" width="6" height="20" fill="url(#uiucGradient)"/>
+    <rect x="-8" y="-10" width="6" height="20" fill="url(#uiucGradient)"/>
+    <rect x="4" y="-10" width="6" height="20" fill="url(#uiucGradient)"/>
+    <rect x="16" y="-10" width="6" height="20" fill="url(#uiucGradient)"/>
+    
+    <!-- Roof/dome -->
+    <path d="M -30,-15 L 0,-25 L 30,-15 L 25,-10 L -25,-10 Z" fill="url(#uiucOrange)"/>
+    
+    <!-- Central dome -->
+    <circle cx="0" cy="-20" r="5" fill="url(#uiucOrange)"/>
+    
+    <!-- I-logo element -->
+    <rect x="-2" y="-5" width="4" height="12" fill="url(#uiucOrange)"/>
+    <rect x="-6" y="-5" width="12" height="2" fill="url(#uiucOrange)"/>
+    <rect x="-6" y="5" width="12" height="2" fill="url(#uiucOrange)"/>
+  </g>
+</svg> 

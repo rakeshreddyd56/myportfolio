@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <defs>
+    <linearGradient id="spannerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285f4"/>
+      <stop offset="100%" style="stop-color:#1a73e8"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#spannerGrad)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+  <path fill="white" d="M8 8h8v2H8V8zm0 4h6v2H8v-2zm0 4h4v2H8v-2z"/>
+  <circle fill="#db4437" cx="18" cy="6" r="2"/>
+  <circle fill="#0f9d58" cx="18" cy="18" r="2"/>
+  <circle fill="#f4b400" cx="6" cy="18" r="2"/>
+</svg> 

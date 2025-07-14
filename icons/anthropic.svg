@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <defs>
+    <linearGradient id="anthropicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#cc785c"/>
+      <stop offset="100%" style="stop-color:#e97451"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#anthropicGrad)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 16l-3-8h2l2 5.5L13.5 10h2l-3 8h-2z"/>
+</svg> 
