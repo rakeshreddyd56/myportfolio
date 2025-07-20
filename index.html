@@ -15,7 +15,12 @@
             <div class="nav-left">
                 <div class="logo apple-bold-text">Sai Rakesh Reddy</div>
             </div>
-            <div class="nav-center">
+            <div class="nav-toggle" id="navToggle">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </div>
+            <div class="nav-center" id="navCenter">
                 <a href="#expertise" class="nav-link">Expertise</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#experience" class="nav-link">Experience</a>
@@ -482,93 +487,252 @@
                                 <div class="roadmap-line"></div>
                                 
                                 <div class="roadmap-item" data-position="walmart" onclick="showExperienceDetails('walmart')">
-                                    <div class="roadmap-marker">
-                                        <div class="marker-dot"></div>
-                                        <div class="marker-pulse"></div>
-                                    </div>
-                                    <div class="roadmap-content">
-                                        <div class="roadmap-avatar">
-                                            <img src="icons/Walmart_Symbol_0.svg" alt="Walmart" class="company-icon">
+                                    <div class="roadmap-header">
+                                        <div class="roadmap-marker">
+                                            <div class="marker-dot"></div>
+                                            <div class="marker-pulse"></div>
                                         </div>
-                                        <h4>Software Engineer III</h4>
-                                        <p class="company">Walmart</p>
-                                        <p class="duration">Jan 2024 - Present</p>
-                                        <div class="roadmap-connector"></div>
+                                        <div class="roadmap-content">
+                                            <div class="roadmap-avatar">
+                                                <img src="icons/Walmart_Symbol_0.svg" alt="Walmart" class="company-icon">
+                                            </div>
+                                            <h4>Software Engineer III</h4>
+                                            <p class="company">Walmart</p>
+                                            <p class="duration">Jan 2024 - Present</p>
+                                            <div class="roadmap-connector"></div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-details">
+                                        <h4>Key Responsibilities & Achievements</h4>
+                                        <ul class="achievement-list">
+                                            <li>Developed and deployed new technologies using ECL and Java with comprehensive unit testing frameworks</li>
+                                            <li>Executed multiple test cycles simulating real-world production scenarios, ensuring 99.9% system reliability</li>
+                                            <li>Collaborated with cross-functional teams including cloud and infrastructure specialists for efficient solution delivery</li>
+                                            <li>Contributed to Azure Cosmos DB by developing automation runbooks, transforming manual tasks into self-service processes</li>
+                                            <li>Built internal GenAI automation tools for task triaging and root cause analysis using MCP servers and vector databases</li>
+                                            <li>Reduced operational costs by 40% through process automation and improved system efficiency</li>
+                                        </ul>
+                                        <div class="tech-stack">
+                                            <h5>Technologies & Tools</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">Python</span>
+                                                <span class="tech-tag">Java</span>
+                                                <span class="tech-tag">ECL</span>
+                                                <span class="tech-tag">Azure</span>
+                                                <span class="tech-tag">Cosmos DB</span>
+                                                <span class="tech-tag">Flask</span>
+                                                <span class="tech-tag">JavaScript</span>
+                                                <span class="tech-tag">HTML/CSS</span>
+                                                <span class="tech-tag">GenAI</span>
+                                                <span class="tech-tag">Vector Databases</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
                                 <div class="roadmap-item" data-position="current" onclick="showExperienceDetails('current')">
-                                    <div class="roadmap-marker">
-                                        <div class="marker-dot"></div>
-                                    </div>
-                                    <div class="roadmap-content">
-                                        <div class="roadmap-avatar">
-                                            <img src="icons/cdnlogo.com_university-of-illinois-block-i-navy-background.svg" alt="University of Illinois" class="company-icon">
+                                    <div class="roadmap-header">
+                                        <div class="roadmap-marker">
+                                            <div class="marker-dot"></div>
                                         </div>
-                                        <h4>Research Data Scientist</h4>
-                                        <p class="company">ISEE, University of Illinois</p>
-                                        <p class="duration">June 2022 - Dec 2023</p>
-                                        <div class="roadmap-connector"></div>
+                                        <div class="roadmap-content">
+                                            <div class="roadmap-avatar">
+                                                <img src="icons/cdnlogo.com_university-of-illinois-block-i-navy-background.svg" alt="University of Illinois" class="company-icon">
+                                            </div>
+                                            <h4>Research Data Scientist</h4>
+                                            <p class="company">ISEE, University of Illinois</p>
+                                            <p class="duration">June 2022 - Dec 2023</p>
+                                            <div class="roadmap-connector"></div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-details">
+                                        <h4>Key Responsibilities & Achievements</h4>
+                                        <ul class="achievement-list">
+                                            <li>Implemented IoT-based solution using Raspberry Pi and PyCam in agricultural fields, reducing manual labor by 20%</li>
+                                            <li>Leveraged edge analytics and AWS cloud system for real-time field monitoring, reducing data latency by 20%</li>
+                                            <li>Deployed GPS modules for precise data collection with seamless timestamp integration</li>
+                                            <li>Enhanced captured images using OpenCV, reducing data processing time by 30%</li>
+                                            <li>Published research findings on precision agriculture and IoT applications</li>
+                                        </ul>
+                                        <div class="tech-stack">
+                                            <h5>Technologies & Tools</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">Python</span>
+                                                <span class="tech-tag">Raspberry Pi</span>
+                                                <span class="tech-tag">AWS</span>
+                                                <span class="tech-tag">OpenCV</span>
+                                                <span class="tech-tag">IoT</span>
+                                                <span class="tech-tag">GPS</span>
+                                                <span class="tech-tag">Edge Analytics</span>
+                                                <span class="tech-tag">Machine Learning</span>
+                                                <span class="tech-tag">Data Science</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
                                 <div class="roadmap-item" data-position="sde" onclick="showExperienceDetails('sde')">
-                                    <div class="roadmap-marker">
-                                        <div class="marker-dot"></div>
-                                    </div>
-                                    <div class="roadmap-content">
-                                        <div class="roadmap-avatar">
-                                            <img src="icons/Qualcomm_idI6Idx5_k_0.svg" alt="Qualcomm" class="company-icon">
+                                    <div class="roadmap-header">
+                                        <div class="roadmap-marker">
+                                            <div class="marker-dot"></div>
                                         </div>
-                                        <h4>Software Development Engineer</h4>
-                                        <p class="company">Qualcomm</p>
-                                        <p class="duration">Jan 2022 - July 2022</p>
-                                        <div class="roadmap-connector"></div>
+                                        <div class="roadmap-content">
+                                            <div class="roadmap-avatar">
+                                                <img src="icons/Qualcomm_idI6Idx5_k_0.svg" alt="Qualcomm" class="company-icon">
+                                            </div>
+                                            <h4>Software Development Engineer</h4>
+                                            <p class="company">Qualcomm</p>
+                                            <p class="duration">Jan 2022 - July 2022</p>
+                                            <div class="roadmap-connector"></div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-details">
+                                        <h4>Key Responsibilities & Achievements</h4>
+                                        <ul class="achievement-list">
+                                            <li>Engineered automated testing platforms achieving 30% platform growth and $5% revenue increase</li>
+                                            <li>Developed comprehensive test automation frameworks for mobile device validation</li>
+                                            <li>Implemented advanced debugging tools for hardware-software integration testing</li>
+                                            <li>Collaborated with hardware teams to optimize chipset performance and validation processes</li>
+                                            <li>Contributed to CI/CD pipeline improvements reducing testing cycle time by 25%</li>
+                                        </ul>
+                                        <div class="tech-stack">
+                                            <h5>Technologies & Tools</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">Python</span>
+                                                <span class="tech-tag">C++</span>
+                                                <span class="tech-tag">Java</span>
+                                                <span class="tech-tag">Linux</span>
+                                                <span class="tech-tag">Jenkins</span>
+                                                <span class="tech-tag">Git</span>
+                                                <span class="tech-tag">Test Automation</span>
+                                                <span class="tech-tag">Hardware Testing</span>
+                                                <span class="tech-tag">CI/CD</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
                                 <div class="roadmap-item" data-position="dle" onclick="showExperienceDetails('dle')">
-                                    <div class="roadmap-marker">
-                                        <div class="marker-dot"></div>
-                                    </div>
-                                    <div class="roadmap-content">
-                                        <div class="roadmap-avatar">
-                                            <img src="icons/ineuronai.jpeg" alt="INeuron.ai" class="company-icon">
+                                    <div class="roadmap-header">
+                                        <div class="roadmap-marker">
+                                            <div class="marker-dot"></div>
                                         </div>
-                                        <h4>Deep Learning Engineer</h4>
-                                        <p class="company">INeuron.ai</p>
-                                        <p class="duration">May 2020 - Dec 2021</p>
-                                        <div class="roadmap-connector"></div>
+                                        <div class="roadmap-content">
+                                            <div class="roadmap-avatar">
+                                                <img src="icons/ineuronai.jpeg" alt="INeuron.ai" class="company-icon">
+                                            </div>
+                                            <h4>Deep Learning Engineer</h4>
+                                            <p class="company">INeuron.ai</p>
+                                            <p class="duration">May 2020 - Dec 2021</p>
+                                            <div class="roadmap-connector"></div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-details">
+                                        <h4>Key Responsibilities & Achievements</h4>
+                                        <ul class="achievement-list">
+                                            <li>Developed cutting-edge COVID-19 detection system serving 20 million users globally</li>
+                                            <li>Implemented computer vision models for medical image analysis with 95% accuracy</li>
+                                            <li>Built scalable deep learning pipelines for real-time healthcare applications</li>
+                                            <li>Designed and deployed neural networks for automated disease detection systems</li>
+                                            <li>Collaborated with medical professionals to validate AI-driven diagnostic tools</li>
+                                            <li>Optimized model performance achieving 40% faster inference time</li>
+                                        </ul>
+                                        <div class="tech-stack">
+                                            <h5>Technologies & Tools</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">TensorFlow</span>
+                                                <span class="tech-tag">PyTorch</span>
+                                                <span class="tech-tag">OpenCV</span>
+                                                <span class="tech-tag">Python</span>
+                                                <span class="tech-tag">Deep Learning</span>
+                                                <span class="tech-tag">Computer Vision</span>
+                                                <span class="tech-tag">Medical AI</span>
+                                                <span class="tech-tag">CNN</span>
+                                                <span class="tech-tag">Docker</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
                                 <div class="roadmap-item" data-position="ds1" onclick="showExperienceDetails('ds1')">
-                                    <div class="roadmap-marker">
-                                        <div class="marker-dot"></div>
-                                    </div>
-                                    <div class="roadmap-content">
-                                        <div class="roadmap-avatar">
-                                            <img src="icons/greyatom.png" alt="Grey Atom" class="company-icon">
+                                    <div class="roadmap-header">
+                                        <div class="roadmap-marker">
+                                            <div class="marker-dot"></div>
                                         </div>
-                                        <h4>Data Scientist</h4>
-                                        <p class="company">Grey Atom</p>
-                                        <p class="duration">May 2019 - Mar 2020</p>
-                                        <div class="roadmap-connector"></div>
+                                        <div class="roadmap-content">
+                                            <div class="roadmap-avatar">
+                                                <img src="icons/greyatom.png" alt="Grey Atom" class="company-icon">
+                                            </div>
+                                            <h4>Data Scientist</h4>
+                                            <p class="company">Grey Atom</p>
+                                            <p class="duration">May 2019 - Mar 2020</p>
+                                            <div class="roadmap-connector"></div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-details">
+                                        <h4>Key Responsibilities & Achievements</h4>
+                                        <ul class="achievement-list">
+                                            <li>Led machine learning projects for customer analytics and business intelligence solutions</li>
+                                            <li>Developed predictive models for customer behavior analysis with 85% accuracy</li>
+                                            <li>Implemented data visualization dashboards for executive decision-making</li>
+                                            <li>Built automated ETL pipelines for large-scale data processing</li>
+                                            <li>Mentored junior data scientists and conducted technical training sessions</li>
+                                            <li>Delivered data-driven insights that improved business KPIs by 25%</li>
+                                        </ul>
+                                        <div class="tech-stack">
+                                            <h5>Technologies & Tools</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">Python</span>
+                                                <span class="tech-tag">R</span>
+                                                <span class="tech-tag">SQL</span>
+                                                <span class="tech-tag">Tableau</span>
+                                                <span class="tech-tag">Scikit-learn</span>
+                                                <span class="tech-tag">Pandas</span>
+                                                <span class="tech-tag">NumPy</span>
+                                                <span class="tech-tag">Machine Learning</span>
+                                                <span class="tech-tag">Statistics</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
                                 <div class="roadmap-item" data-position="ds2" onclick="showExperienceDetails('ds2')">
-                                    <div class="roadmap-marker">
-                                        <div class="marker-dot"></div>
-                                    </div>
-                                    <div class="roadmap-content">
-                                        <div class="roadmap-avatar">
-                                            <img src="icons/inmovidu.png" alt="Inmovidu Technologies" class="company-icon">
+                                    <div class="roadmap-header">
+                                        <div class="roadmap-marker">
+                                            <div class="marker-dot"></div>
                                         </div>
-                                        <h4>Data Scientist</h4>
-                                        <p class="company">Inmovidu Technologies</p>
-                                        <p class="duration">Feb 2019 - Apr 2019</p>
-                                        <div class="roadmap-connector"></div>
+                                        <div class="roadmap-content">
+                                            <div class="roadmap-avatar">
+                                                <img src="icons/inmovidu.png" alt="Inmovidu Technologies" class="company-icon">
+                                            </div>
+                                            <h4>Data Scientist</h4>
+                                            <p class="company">Inmovidu Technologies</p>
+                                            <p class="duration">Feb 2019 - Apr 2019</p>
+                                            <div class="roadmap-connector"></div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-details">
+                                        <h4>Key Responsibilities & Achievements</h4>
+                                        <ul class="achievement-list">
+                                            <li>Managed database storage systems for large-scale data processing and integrity maintenance</li>
+                                            <li>Created interactive visualizations using Tableau for comprehensive data analysis and insights</li>
+                                            <li>Implemented machine learning models with optimized accuracy for data attribute analysis</li>
+                                            <li>Developed data cleaning pipelines to ensure high-quality, consistent data</li>
+                                            <li>Delivered actionable insights through advanced analytics and visualization techniques</li>
+                                        </ul>
+                                        <div class="tech-stack">
+                                            <h5>Technologies & Tools</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">Python</span>
+                                                <span class="tech-tag">Tableau</span>
+                                                <span class="tech-tag">SQL</span>
+                                                <span class="tech-tag">Machine Learning</span>
+                                                <span class="tech-tag">Data Cleaning</span>
+                                                <span class="tech-tag">Data Visualization</span>
+                                                <span class="tech-tag">Pandas</span>
+                                                <span class="tech-tag">Scikit-learn</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

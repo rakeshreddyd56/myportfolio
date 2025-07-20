@@ -13,6 +13,34 @@ document.addEventListener('DOMContentLoaded', function() {
     
     try {
     
+    // Mobile Navigation Functionality
+    const navToggle = document.getElementById('navToggle');
+    const navCenter = document.getElementById('navCenter');
+    const mobileNavLinks = document.querySelectorAll('.nav-link');
+
+    if (navToggle && navCenter) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navCenter.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on nav links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navCenter.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navToggle.contains(event.target) && !navCenter.contains(event.target)) {
+                navToggle.classList.remove('active');
+                navCenter.classList.remove('active');
+            }
+        });
+    }
+    
     // Check for success parameter in URL (from FormSubmit redirect)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {
@@ -682,32 +710,62 @@ document.addEventListener('DOMContentLoaded', function() {
             clickedItem.classList.add('selected');
         }
 
-        // Update experience details
-        const experienceDetails = document.getElementById('experienceDetails');
-        if (experienceDetails) {
-            experienceDetails.innerHTML = `
-                <div class="experience-detail-card active">
-                    <h4>${data.title}</h4>
-                    <p class="detail-company">${data.company}</p>
-                    <p class="detail-duration">${data.duration}</p>
-                    
-                    <div class="detail-achievements">
-                        <h5>🎯 Key Responsibilities & Achievements</h5>
-                        <ul class="achievement-list">
-                            ${data.details.map(detail => `<li>${detail}</li>`).join('')}
-                        </ul>
-                    </div>
-                    
-                    ${data.technologies ? `
-                    <div class="detail-technologies">
-                        <h5>🛠️ Technologies & Tools</h5>
-                        <div class="tech-tags-container">
-                            ${data.technologies.map(tech => `<span class="detail-tech-tag">${tech}</span>`).join('')}
+        // Check if mobile layout (screen width)
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+            // For mobile: Use inline details in the roadmap item itself
+            // Remove any existing inline details first
+            modal.querySelectorAll('.inline-details').forEach(details => {
+                details.style.display = 'none';
+            });
+
+            // Show inline details for selected item
+            const inlineDetails = clickedItem?.querySelector('.inline-details');
+            if (inlineDetails) {
+                inlineDetails.style.display = 'block';
+            }
+
+            // Hide desktop experience details on mobile
+            const experienceDetails = document.getElementById('experienceDetails');
+            if (experienceDetails) {
+                experienceDetails.style.display = 'none';
+            }
+        } else {
+            // For desktop: Use the original separate experience details section
+            // Hide all inline details on desktop
+            modal.querySelectorAll('.inline-details').forEach(details => {
+                details.style.display = 'none';
+            });
+
+            // Update the separate experience details section
+            const experienceDetails = document.getElementById('experienceDetails');
+            if (experienceDetails) {
+                experienceDetails.style.display = 'block';
+                experienceDetails.innerHTML = `
+                    <div class="experience-detail-card active">
+                        <h4>${data.title}</h4>
+                        <p class="detail-company">${data.company}</p>
+                        <p class="detail-duration">${data.duration}</p>
+                        
+                        <div class="detail-achievements">
+                            <h5>🎯 Key Responsibilities & Achievements</h5>
+                            <ul class="achievement-list">
+                                ${data.details.map(detail => `<li>${detail}</li>`).join('')}
+                            </ul>
                         </div>
+                        
+                        ${data.technologies ? `
+                        <div class="tech-stack">
+                            <h5>🛠️ Technologies & Tools</h5>
+                            <div class="tech-tags">
+                                ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
                     </div>
-                    ` : ''}
-                </div>
-            `;
+                `;
+            }
         }
     };
 
@@ -1255,6 +1313,37 @@ document.addEventListener('DOMContentLoaded', function() {
             cursorDot.classList.remove('visible');
         } else {
             document.body.classList.add('custom-cursor-active');
+        }
+        
+        // Handle experience modal layout changes on resize
+        const modal = document.getElementById('workExperienceModal');
+        if (modal && modal.classList.contains('active')) {
+            // Clear all selections and reset layout
+            const selectedItems = modal.querySelectorAll('.roadmap-item.selected');
+            selectedItems.forEach(item => item.classList.remove('selected'));
+            
+            // Hide all inline details
+            modal.querySelectorAll('.inline-details').forEach(details => {
+                details.style.display = 'none';
+            });
+            
+            // Reset experience details based on screen size
+            const experienceDetails = document.getElementById('experienceDetails');
+            if (experienceDetails) {
+                if (window.innerWidth <= 768) {
+                    // Mobile: Hide separate details section
+                    experienceDetails.style.display = 'none';
+                } else {
+                    // Desktop: Show separate details section with placeholder
+                    experienceDetails.style.display = 'block';
+                    experienceDetails.innerHTML = `
+                        <div class="details-placeholder">
+                            <h4>Select a position to view details</h4>
+                            <p>Click on any position in the timeline to see the responsibilities, achievements, and technologies used.</p>
+                        </div>
+                    `;
+                }
+            }
         }
     });
     
