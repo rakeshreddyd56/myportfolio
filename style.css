@@ -348,6 +348,15 @@
     -webkit-text-fill-color: initial !important;
 }
 
+:root[data-theme="light"] .logo::before {
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+}
+
+:root[data-theme="light"] .logo:hover::before {
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
 :root[data-theme="light"] .nav-link {
     color: #4a5568;
 }
@@ -569,6 +578,27 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo::before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    background-image: url('icons/monkey-d-luffy-favicon.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
 }
 
 .nav-center {
@@ -3073,6 +3103,18 @@ body {
         align-items: center;
     }
 
+    /* Mobile logo adjustments */
+    .logo::before {
+        width: 28px;
+        height: 28px;
+        border-width: 2px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+        gap: 0.4rem;
+    }
+
     .nav-toggle {
         display: flex !important; /* Override desktop hidden state */
         flex-direction: column;
@@ -3682,6 +3724,18 @@ body {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         margin-top: 0;
+    }
+
+    /* Extra small mobile logo adjustments */
+    .logo::before {
+        width: 24px;
+        height: 24px;
+        border-width: 1px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        gap: 0.3rem;
     }
 
     .hero-title {
