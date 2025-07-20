@@ -1207,16 +1207,62 @@ document.addEventListener('DOMContentLoaded', function() {
         body.style.opacity = '1';
     }, 100);
     
-    // Add parallax effect to hero section
+    // Add parallax effect to hero section (desktop only)
     const hero = document.querySelector('.hero');
     
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxSpeed = 0.5;
-        
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+    const handleScroll = () => {
+        // Only apply parallax effect on desktop to avoid mobile scroll issues
+        if (window.innerWidth > 768) {
+            const scrolled = window.pageYOffset;
+            const parallaxSpeed = 0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+            }
+        } else {
+            // Reset transform on mobile to prevent scroll issues
+            if (hero) {
+                hero.style.transform = 'none';
+            }
         }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Handle window resize to reset hero transform when switching between mobile/desktop
+    window.addEventListener('resize', () => {
+        if (hero) {
+            if (window.innerWidth <= 768) {
+                hero.style.transform = 'none';
+            }
+        }
+    });
+    
+    // Ensure mobile devices can scroll to the very top
+    const ensureMobileScrollToTop = () => {
+        if (window.innerWidth <= 768) {
+            // Force scroll to top on mobile page load
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            
+            // Reset hero transform on mobile
+            if (hero) {
+                hero.style.transform = 'none';
+            }
+            
+            // Ensure page can scroll to position 0
+            document.body.style.paddingTop = '0';
+            document.documentElement.style.paddingTop = '0';
+        }
+    };
+    
+    // Run on page load
+    ensureMobileScrollToTop();
+    
+    // Run on orientation change (mobile rotation)
+    window.addEventListener('orientationchange', () => {
+        setTimeout(ensureMobileScrollToTop, 200);
     });
     
     // Enhanced Smooth Cursor Implementation
