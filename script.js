@@ -1068,9 +1068,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Handle different button actions
             if (this.textContent.includes('View Projects')) {
-                window.open('https://github.com/rakeshreddyd56', '_blank');
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = projectsSection.offsetTop - headerHeight - 20;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
             } else if (this.textContent.includes('Contact Me')) {
-                window.open('mailto:sairakeshreddy@gmail.com', '_blank');
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = contactSection.offsetTop - headerHeight - 20;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
             } else if (this.textContent.includes('View LinkedIn')) {
                 window.open('https://linkedin.com/in/sairakeshreddy', '_blank');
             }
