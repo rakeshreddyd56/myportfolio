@@ -4872,6 +4872,44 @@ body.custom-cursor-active * {
     body.custom-cursor-active * {
         cursor: auto !important;
     }
+
+    /* Adjust floating shapes for mobile */
+    .shape-1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        left: -100px;
+    }
+    
+    .shape-2 {
+        width: 250px;
+        height: 250px;
+        bottom: 5%;
+        right: -50px;
+    }
+    
+    .shape-3 {
+        width: 150px;
+        height: 150px;
+        top: 30%;
+        left: 10%;
+    }
+
+    /* Disable 3D tilt on mobile */
+    .project-card, .value-card {
+        transform: none !important;
+        transition: box-shadow 0.3s ease;
+    }
+    
+    /* Reduce font sizes */
+    .hero-title .apple-bold-text {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+    
+    .section-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+        margin-bottom: 2.5rem;
+    }
 }
 
 /* Apple-inspired Liquid Glass Effect */

@@ -1422,6 +1422,9 @@ document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
 
+            // Adjust particle count based on screen size
+            const getParticleCount = () => window.innerWidth < 768 ? 30 : 60;
+            
             class Particle {
                 constructor() {
                     this.x = Math.random() * canvas.width;
@@ -1445,7 +1448,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            for (let i = 0; i < 60; i++) particles.push(new Particle());
+            let particleCount = getParticleCount();
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+            // Re-initialize particles on resize to avoid overcrowding on mobile
+            window.addEventListener('resize', () => {
+                 const newCount = getParticleCount();
+                 if (newCount !== particleCount) {
+                     particles = [];
+                     particleCount = newCount;
+                     for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+                 }
+            });
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1472,13 +1486,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     });
                     
-                    // Mouse interaction
-                    const dx = mouseX - p.x;
-                    const dy = mouseY - p.y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    if (dist < 200) {
-                         p.x += dx * 0.01;
-                         p.y += dy * 0.01;
+                    // Mouse interaction (only on desktop for performance)
+                    if (window.innerWidth > 768) {
+                        const dx = mouseX - p.x;
+                        const dy = mouseY - p.y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < 200) {
+                             p.x += dx * 0.01;
+                             p.y += dy * 0.01;
+                        }
                     }
                 });
                 requestAnimationFrame(animateParticles);
@@ -1486,26 +1502,28 @@ document.addEventListener('DOMContentLoaded', function() {
             animateParticles();
         }
 
-        // 3. 3D Tilt for Cards
+        // 3. 3D Tilt for Cards (Disable on touch devices)
         const cards = document.querySelectorAll('.project-card, .value-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -12; 
-                const rotateY = ((x - centerX) / centerX) * 12;
+        if (window.matchMedia("(hover: hover)").matches) {
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -12; 
+                    const rotateY = ((x - centerX) / centerX) * 12;
 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
             });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            });
-        });
+        }
 
         // 4. Staggered Reveals
         const revealElements = document.querySelectorAll('.tech-tag, .roadmap-item, .contact-item');
