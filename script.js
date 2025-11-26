@@ -1198,14 +1198,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add loading animation
-    const body = document.body;
-    body.style.opacity = '0';
-    body.style.transition = 'opacity 0.5s ease';
-    
+    // Add loading animation (Shutter Reveal)
     setTimeout(() => {
-        body.style.opacity = '1';
-    }, 100);
+        document.querySelectorAll('.shutter').forEach(s => s.classList.add('open'));
+        setTimeout(() => {
+             document.querySelectorAll('.shutter').forEach(s => s.style.display = 'none');
+        }, 1000);
+    }, 300);
+    
+    // Legacy opacity fade (keeping just in case, but resetting opacity to 1 immediately)
+    const body = document.body;
+    body.style.opacity = '1';
+
     
     // Add parallax effect to hero section (desktop only)
     const hero = document.querySelector('.hero');
@@ -1393,6 +1397,136 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // --- CRAZY ENHANCEMENTS INIT ---
+    function initCrazyEnhancements() {
+        console.log('🚀 Initializing Crazy Enhancements');
+        
+        // 1. Glitch Effect Setup
+        const glitchTitles = document.querySelectorAll('.hero-title, .section-title');
+        glitchTitles.forEach(title => {
+            title.classList.add('glitch-text');
+            // Use innerText but strip newlines for cleaner attribute
+            title.setAttribute('data-text', title.innerText.replace(/\n/g, ' '));
+        });
+
+        // 2. Hero Canvas Particles
+        const canvas = document.getElementById('hero-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.size = Math.random() * 2 + 1;
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                draw() {
+                    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                    ctx.fillStyle = isDark ? 'rgba(99, 102, 241, 0.5)' : 'rgba(99, 102, 241, 0.3)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                    // Draw connections
+                    particles.forEach(p2 => {
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < 120) {
+                            ctx.strokeStyle = isDark 
+                                ? `rgba(99, 102, 241, ${0.15 * (1 - dist/120)})`
+                                : `rgba(99, 102, 241, ${0.1 * (1 - dist/120)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    });
+                    
+                    // Mouse interaction
+                    const dx = mouseX - p.x;
+                    const dy = mouseY - p.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 200) {
+                         p.x += dx * 0.01;
+                         p.y += dy * 0.01;
+                    }
+                });
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        }
+
+        // 3. 3D Tilt for Cards
+        const cards = document.querySelectorAll('.project-card, .value-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -12; 
+                const rotateY = ((x - centerX) / centerX) * 12;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // 4. Staggered Reveals
+        const revealElements = document.querySelectorAll('.tech-tag, .roadmap-item, .contact-item');
+        revealElements.forEach((el, index) => {
+            el.classList.add('reveal-stagger');
+            el.style.transitionDelay = `${(index % 5) * 0.1}s`; // Stagger delay
+        });
+        
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        revealElements.forEach(el => staggerObserver.observe(el));
+    }
+    
+    initCrazyEnhancements();
+
     } catch (error) {
         console.error('🔥 Error in DOMContentLoaded:', error);
         console.error('🔥 Stack trace:', error.stack);
