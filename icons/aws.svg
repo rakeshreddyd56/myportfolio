@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-  <rect width="24" height="24" fill="#ff9900" rx="3"/>
-  <path d="M4 16 Q8 12 12 16 Q16 20 20 16" stroke="white" stroke-width="2" fill="none"/>
-  <path d="M4 14 Q8 10 12 14 Q16 18 20 14" stroke="white" stroke-width="1.5" fill="none"/>
-  <path d="M6 20h12l-1-2H7z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#FF9900"/>
+  <path d="M6 20 Q10 16 14 20 Q18 24 22 20 Q26 16 26 20 L26 24 Q26 24 22 24 Q18 24 14 24 Q10 24 6 24 Z" fill="white"/>
+  <path d="M8 12 Q12 8 16 12 Q20 16 24 12" stroke="white" stroke-width="2" fill="none"/>
+  <text x="16" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white">AWS</text>
 </svg>

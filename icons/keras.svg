@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-  <rect width="24" height="24" fill="#d00000" rx="3"/>
-  <path d="M6 6h3v3H6zm5 0h3v3h-3zm5 0h3v3h-3zM6 11h3v3H6zm5 0h3v3h-3zm5 0h3v3h-3zM6 16h3v3H6zm5 0h3v3h-3zm5 0h3v3h-3z" fill="white"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#D00000"/>
+  <path d="M8 8h4v4h-4zM14 8h4v4h-4zM20 8h4v4h-4zM8 14h4v4h-4zM14 14h4v4h-4zM20 14h4v4h-4zM8 20h4v4h-4zM14 20h4v4h-4zM20 20h4v4h-4z" fill="white"/>
+  <text x="16" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white">K</text>
+</svg> 
