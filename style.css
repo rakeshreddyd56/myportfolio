@@ -45,3 +45,12 @@
 .note-visual{margin:0}.note-visual img{display:block;width:100%;height:auto;border:1px solid var(--line)}.note-visual figcaption{font-size:10px;color:#858b83;margin-top:9px}
 .note-text-visual{background:#edf1eb;min-height:270px;display:flex;flex-direction:column;justify-content:center;padding:40px;color:#315343}.note-text-visual>span{font-size:10px;letter-spacing:.12em;font-weight:700}.note-text-visual p{font-size:clamp(27px,3vw,40px);letter-spacing:-.05em;line-height:1.15}.note-text-visual em{color:#839b87;font-style:normal}
 @media(max-width:760px){.notes-intro{padding:65px 20px}.back-link{margin-bottom:55px}.note{grid-template-columns:1fr;gap:30px;padding:65px 20px}.note h2{font-size:35px}.note-text-visual{min-height:220px}.antarang-snapshot{height:auto}}
+
+/* Clear, detailed experience entries. */
+.experience-source{font-size:12px;color:#68796d;font-weight:600}
+.experience-source:hover{text-decoration:underline}
+.experience-body .experience-location{font-size:11px;color:#777d75;letter-spacing:.02em;margin:0 0 15px}
+.experience-points{padding:0 0 0 17px;margin:0;color:#626660;font-size:14px;line-height:1.75}
+.experience-points li+li{margin-top:9px}
+.experience-points li::marker{color:#8daa94}
+@media(max-width:760px){.experience-source{font-size:11px}.experience-points{padding-left:17px}}
