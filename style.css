@@ -56,3 +56,6 @@
 @media(max-width:760px){.experience-source{font-size:11px}.experience-points{padding-left:17px}}
 
 .research-progress{margin-top:46px}.paper-in-progress{justify-content:flex-start;color:#505750}.paper-in-progress>span:last-child{flex-shrink:1}
+
+/* Publication context and links in the research section. */
+.paper small{display:block;margin-top:7px;color:#7a7e78;font-size:11px;line-height:1.4}.recognition a{color:#354f40;font-weight:600}.recognition a:hover{text-decoration:underline}.recognition-group{margin-top:45px}
