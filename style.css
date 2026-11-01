@@ -54,3 +54,5 @@
 .experience-points li+li{margin-top:9px}
 .experience-points li::marker{color:#8daa94}
 @media(max-width:760px){.experience-source{font-size:11px}.experience-points{padding-left:17px}}
+
+.research-progress{margin-top:46px}.paper-in-progress{justify-content:flex-start;color:#505750}.paper-in-progress>span:last-child{flex-shrink:1}
